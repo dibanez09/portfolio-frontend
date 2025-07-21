@@ -9,7 +9,8 @@ import NavBar from './components/NavBar';
 const App = () => {
   return (
     <>
-      <div className="px-4 mx-auto max-w-7xl lg:px-8 font-sans ">
+      {/* px-4 mx-auto max-w-7xl lg:px-8  */}
+      <div className="font-sans ">
         <NavBar
           menu={[
             { title: 'Home', link: '/' },

@@ -16,12 +16,14 @@ const NavBar = ({ menu, fname }) => {
   const [mobileMenuIsOpen, setmobileMenuIsOpen] = useState(false);
 
   return (
-    <header>
+    <header className="absolute bg-transparent px-4 mx-auto max-w-7xl lg:px-8">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between pt-6">
         <div className="flex lg:flex-1">
           <a onClick={() => navigate('/')} className="-m-1.5 p-1.5">
-            <span className="logo text-white">{users.value[0]?.profileId?.nickname}</span>
-            <span className="logo text-accent">.dev</span>
+            <span className="logo text-white animate-spacing">
+              {users.value[0]?.profileId?.nickname}
+            </span>
+            <span className="logo text-accent animate-spacing">.dev</span>
           </a>
         </div>
 
