@@ -1,11 +1,33 @@
 @import './assets/css/font.css';
 @import './assets/css/color.css';
+
 @import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'ISOCP';
+  src: url('../fonts/ISOCP.ttf') format('tiff');
+  /* Add other properties like font-weight and font-style if needed */
+}
+
+@theme {
+  --font-ISOCP: 'ISOCP', 'sans-serif';
+}
 
 .logo {
   font-family: 'Audiowide', sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 20px;
-  /* letter-spacing: 5px; */
+  font-size: 32px;
+  letter-spacing: -2px;
+}
+
+@layer base {
+  html {
+    @apply bg-neutral-900; /* Replace with your desired background color */
+    font-family: 'Inter', sans-serif;
+    color: #5a5b6d;
+  }
 }

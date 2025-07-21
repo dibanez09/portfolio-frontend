@@ -1,13 +1,28 @@
 import React from 'react';
-import { Route, Router, Routes } from 'react-router';
+import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import PortfolioPage from './pages/PortfolioPage';
+import ContactPage from './pages/ContactPage';
 
+import NavBar from './components/NavBar';
 const App = () => {
   return (
     <>
-      <div class="mx-[10vw]">
+      <div className="px-4 mx-auto max-w-7xl lg:px-8 font-sans ">
+        <NavBar
+          menu={[
+            { title: 'Home', link: '/' },
+            { title: 'About', link: '/about' },
+            { title: 'Portfolio', link: '/portfolio' },
+            { title: 'Contact', link: '/contact' }
+          ]}
+        />
         <Routes>
-          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </div>
     </>

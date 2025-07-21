@@ -2,49 +2,67 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // components
-import NavBar from '../components/NavBar';
+import FacebookIcon from '../components/icons/FacebookIcon';
+import GithubIcon from '../components/icons/GithubIcon';
 
-import pic from '../assets/images/profile.webp';
+import pic from '../assets/images/profile.jpg';
 import { fetchUsers } from '../state/reducers/userReducer';
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
-  console.log('test', users);
 
   useEffect(() => {
     dispatch(fetchUsers());
-    console.log(users);
   }, [dispatch]);
+
   return (
     <div>
-      <NavBar
-        menu={[
-          { title: 'Home', link: '/' },
-          { title: 'About', link: '/about' },
-          { title: 'Services', link: '/services' },
-          { title: 'Portfolio', link: '/portfolio' },
-          { title: 'Contact', link: '/contact' }
-        ]}
-      />
-      <div class="grid grid-flow-col grid-rows gap-1 h-[calc(100vh-80px)]">
-        <div class="row-span-1 col-span-7">
-          <div class="grid grid-cols-3 content-center gap-4 h-[calc(100vh-80px)]">
-            <div class="col-span-3" style={{ border: '1px solid red' }}>
-              <p class="text-5xl">Hi, Im Dan Ibañez</p>
-            </div>
-            <div class="col-span-3" style={{ border: '1px solid red' }}>
-              <p class="text-4xl">Full Stack Developer</p>
+      <div className="grid grid-cols-6 md:grid-cols-12 gap-1 h-[calc(100vh-72px)]">
+        <div className="col-span-6 flex">
+          <div className="my-auto mx-12">
+            <div className="relative text-center">
+              <img className="w-full p-1 grayscale" src={pic} alt="avatar" />
+              <p
+                className="text-5xl md:text-6xl text-white font-ISOCP uppercase absolute top-0 bottom-0 -left-5 md:-left-6"
+                style={{ writingMode: 'vertical-rl' }}>
+                {users.value[0]?.profileId?.occupation}
+              </p>
+              <p
+                className="text-3xl font-ISOCP uppercase absolute top-0 bottom-0 -left-14 text-secondary"
+                style={{ writingMode: 'vertical-rl' }}>
+                {users.value[0]?.profileId?.occupationSubCategory}
+              </p>
+
+              <div className="absolute top-[20%] -right-10">
+                <p className="text-3xl font-ISOCP text-secondary text-shadow-lg/30">
+                  {users.value[0]?.profileId?.nickname}
+                </p>
+                <p className="text-3xl font-ISOCP text-white text-shadow-lg/30 tracking-[10px]">
+                  {users.value[0]?.profileId?.lastname}
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="row-span-1 col-span-3 flex">
-          <div class="m-auto">
-            <img
-              class="h-[calc(50vh-80px)] p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-              src={pic}
-              alt="Rounded avatar"
-            />
+        <div className="col-span-6">
+          <div className="grid grid-cols-3 content-center gap-4 h-[calc(100vh-80px)]">
+            <div className="col-span-3">
+              <p className="text-2xl">
+                Subheading that sets up context, shares more info about the website, or generally
+                gets people psyched to keep scrolling.
+              </p>
+              <div className="my-2 justify-end flex gap-2">
+                <FacebookIcon
+                  onClick={() => window.open('https://www.facebook.com/dan2498', '_blank')}
+                  className="w-4 h-4 text-accent rounded-full ring-1 "
+                />
+                <GithubIcon
+                  onClick={() => window.open('https://github.com/dibanez09', '_blank')}
+                  className="w-4 h-4 text-accent rounded-full ring-1"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

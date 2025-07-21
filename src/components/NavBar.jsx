@@ -1,25 +1,27 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 //icons
 import BarIcon from './icons/BarIcon';
 import CloseIcon from './icons/CloseIcon';
-const NavBar = ({ menu }) => {
+const NavBar = ({ menu, fname }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const { hash, pathname, search } = location;
+
+  const users = useSelector((state) => state.users);
   const [mobileMenuIsOpen, setmobileMenuIsOpen] = useState(false);
 
   return (
-    <header className="bg-white">
-      <nav
-        aria-label="Global"
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+    <header>
+      <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between pt-6">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span class="logo color-accent">Dan.dev</span>
-            {/* <img
-              alt=""
-              src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-              className="h-8 w-auto"
-            /> */}
+          <a onClick={() => navigate('/')} className="-m-1.5 p-1.5">
+            <span className="logo text-white">{users.value[0]?.profileId?.nickname}</span>
+            <span className="logo text-accent">.dev</span>
           </a>
         </div>
 
@@ -27,8 +29,8 @@ const NavBar = ({ menu }) => {
           {menu.map((item, i) => (
             <div key={i}>
               <button
-                href={item?.link}
-                className="text-sm/6 font-semibold text-gray-900 hover:text-green-900 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
+                onClick={() => navigate(item?.link)}
+                className={`text-sm/6 font-semibold text-white-900 hover:text-white-1000 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 ${pathname == item?.link ? 'text-white' : ''}`}>
                 {item?.title}
               </button>
             </div>
@@ -45,7 +47,7 @@ const NavBar = ({ menu }) => {
             {mobileMenuIsOpen ? (
               <CloseIcon />
             ) : (
-              <BarIcon class="w-6 h-6 text-red-100 dark:text-white focus:animate-ping" />
+              <BarIcon className="w-6 h-6 text-red-100 text-white" />
             )}
           </button>
         </div>

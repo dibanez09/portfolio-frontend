@@ -1,7 +1,7 @@
 const BarIcon = (props) => {
   return (
     <svg
-      class="w-6 h-6 text-gray-800 dark:text-white"
+      className="w-6 h-6 text-gray-800 dark:text-white"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -11,8 +11,8 @@ const BarIcon = (props) => {
       {...props}>
       <path
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeWidth="2"
         d="M5 7h14M5 12h14M5 17h14"
       />
     </svg>

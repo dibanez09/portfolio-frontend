@@ -1,40 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 @import 'tailwindcss';
 
-.bg-color {
-  background-color: #f1f6f9;
-}
-
-.color-primary {
-  color: #394867;
-}
-
-.color-secondary {
-  color: #212a3e;
-}
-
-.color-accent {
-  color: #212121;
-}
-
 @theme {
-  --color-midnight: #f9f9f9;
-  --color-tahiti: #3ab7bf;
-  --color-bermuda: #78dcca;
+  --color-secondary: #5c5c5c;
+  --color-accent: oklch(94.5% 0.129 101.54);
 }
-
-/* .bg-color {
-  background-color: #f9f9f9;
-}
-
-.color-primary {
-  color: #dbe2ef;
-}
-
-.color-secondary {
-  color: #3f72af;
-}
-
-.color-accent {
-  color: #112d4e;
-} */
