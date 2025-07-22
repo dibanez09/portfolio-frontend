@@ -8,5 +8,9 @@ export default defineConfig({
   server: {
     port: process.env.VITE_PORT || 3001,
     host: process.env.VITE_HOST || 'localhost'
+  },
+  preview: {
+    port: process.env.VITE_PORT || 3001,
+    host: process.env.VITE_HOST || '0.0.0.0'
   }
 });
