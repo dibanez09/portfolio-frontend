@@ -53,13 +53,23 @@
       letter-spacing: 20px;
     }
   }
+
+  --animate-fadeIn: fadeIn 1s ease-in-out forwards;
+  @keyframes fadeIn {
+    100% {
+      opacity: 1;
+    }
+    0% {
+      opacity: 0;
+    }
+  }
 }
 
 .logo {
   font-family: 'Audiowide', sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 32px;
+  font-size: 24px;
   letter-spacing: -2px;
 }
 

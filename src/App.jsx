@@ -10,7 +10,7 @@ const App = () => {
   return (
     <>
       {/* px-4 mx-auto max-w-7xl lg:px-8  */}
-      <div className="font-sans ">
+      <div className="font-abel">
         <NavBar
           menu={[
             { title: 'Home', link: '/' },
