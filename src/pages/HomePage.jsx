@@ -29,7 +29,7 @@ const HomePage = () => {
           <div className="grid grid-cols-12">
             <div className="col-span-12  md:mt-[20dvh]">
               <p className="text-1xl md:text-2xl text-shadow-lg animate-fadeIn">
-                Hey, I'm {users.value[0]?.profileId?.nickname}
+                Hey, I'm {users.value?.profileId?.nickname}
               </p>
             </div>
 
@@ -44,7 +44,7 @@ const HomePage = () => {
                 <p
                   className="text-7xl md:text-8xl text-shadow-lg animate-fadeIn"
                   style={{ animationDelay: '1s', opacity: 0 }}>
-                  {users.value[0]?.profileId?.occupationSubCategory}
+                  {users.value?.profileId?.occupationSubCategory}
                 </p>
               </div>
             </div>
@@ -52,7 +52,7 @@ const HomePage = () => {
               <p
                 className="text-5xl md:text-6xl text-white uppercase font-ISOCP animate-fadeIn"
                 style={{ animationDelay: '1.5s', opacity: 0 }}>
-                {users.value[0]?.profileId?.occupation}
+                {users.value?.profileId?.occupation}
               </p>
             </div>
             <div className="col-span-12 mt-2 md:mt-12 min-h-50">
@@ -107,12 +107,12 @@ const HomePage = () => {
                 </div>
                 <div className="col-span-6 flex justify-end gap-2">
                   <FacebookIcon
-                    onClick={() => window.open('https://www.facebook.com/dan2498', '_blank')}
+                    // onClick={() => window.open('https://www.facebook.com/dan2498', '_blank')}
                     className="w-5 h-5 text-stone-900 rounded-full ring-1 bg-gray-100 hover:cursor-pointer animate-fadeIn"
                     style={{ animationDelay: '3.5s', opacity: 0 }}
                   />
                   <GithubIcon
-                    onClick={() => window.open('https://github.com/dibanez09', '_blank')}
+                    // onClick={() => window.open('https://github.com/dibanez09', '_blank')}
                     className="w-5 h-5 text-stone-900 rounded-full ring-1 bg-gray-100 hover:cursor-pointer animate-fadeIn"
                     style={{ animationDelay: '3.6s', opacity: 0 }}
                   />

@@ -22,7 +22,7 @@ const NavBar = ({ menu, fname }) => {
           <div className="flex lg:flex-1">
             <a onClick={() => navigate('/')} className="-m-1.5 p-1.5">
               <span className="logo text-white animate-spacing">
-                {users.value[0]?.profileId?.nickname}
+                {users.value?.profileId?.nickname}
               </span>
               <span className="logo text-accent animate-spacing">.dev</span>
             </a>
