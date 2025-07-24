@@ -1,33 +1,94 @@
-/* google font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+@import './assets/css/font.css';
+@import './assets/css/color.css';
 
-/* layout */
-:root {
-  --primary: #1aac83;
-  --error: #e7195a;
+@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'ISOCP';
+  src: url('../fonts/ISOCP.ttf') format('tiff');
+  /* Add other properties like font-weight and font-style if needed */
 }
-body {
-  background: #f1f1f1;
-  margin: 0;
-  font-family: 'Poppins';
+
+@theme {
+  --font-ISOCP: 'ISOCP', 'sans-serif';
+  --font-abel: 'abel', 'sans-serif';
+
+  --animate-slide-down: slideDown 1s ease-in-out;
+  @keyframes slideDown {
+    100% {
+      margin-bottom: none;
+    }
+    50% {
+      opacity: 1;
+    }
+    0% {
+      margin-bottom: 200px;
+      opacity: 0;
+    }
+  }
+
+  --animate-slide-up: slideUp 1s ease-in-out;
+  @keyframes slideUp {
+    100% {
+      margin-top: none;
+    }
+    50% {
+      opacity: 1;
+    }
+    0% {
+      margin-top: 200px;
+      opacity: 0;
+    }
+  }
+
+  --animate-spacing: spacing 1s ease-in-out;
+  @keyframes spacing {
+    100% {
+      letter-spacing: -2px;
+    }
+    0% {
+      letter-spacing: 20px;
+    }
+  }
+
+  --animate-fadeIn: fadeIn 1s ease-in-out forwards;
+  @keyframes fadeIn {
+    100% {
+      opacity: 1;
+    }
+    0% {
+      opacity: 0;
+    }
+  }
 }
-header {
-  background: #fff;
+
+.logo {
+  font-family: 'Audiowide', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  letter-spacing: -2px;
 }
-header .container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
+@layer base {
+  html {
+    @apply bg-neutral-900; /* Replace with your desired background color */
+    font-family: 'abel', sans-serif;
+    color: #5c5c5c;
+  }
 }
-header a {
-  color: #333;
-  text-decoration: none;
-}
-.pages {
-  max-width: 1400px;
-  padding: 20px;
-  margin: 0 auto;
+
+.gradientMask {
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0.318),
+    rgba(0, 0, 0, 0)
+  );
 }

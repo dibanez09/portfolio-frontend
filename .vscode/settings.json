@@ -3,7 +3,7 @@
   "editor.formatOnSave": true,
   "prettier.useEditorConfig": false,
   "prettier.useTabs": false,
-  "prettier.configPath": ".prettierrc.json",
+  "prettier.configPath": ".prettierrc",
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false
 }
