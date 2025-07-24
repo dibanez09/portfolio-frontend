@@ -15,9 +15,12 @@ jobs:
       - name: Set outputs
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - name: Build Image
         run: |
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "danibanez09" --password-stdin
-          docker image build -t 'portfolio/frontend:$(date +"%Y-%m-%d %T")-${{ steps.vars.outputs.sha_short }}' .
+          docker image build -t 'portfolio/frontend:${{ steps.date.outputs.date }}-${{ steps.vars.outputs.sha_short }}' .
       - name: Push Image
-        run: docker push 'portfolio/frontend:$(date +"%Y-%m-%d %T")-${{ steps.vars.outputs.sha_short }}'
+        run: docker push 'portfolio/frontend:${{ steps.date.outputs.date }}-${{ steps.vars.outputs.sha_short }}'
