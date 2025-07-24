@@ -13,10 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set outputs
-        id: vars
-        run: |
-          echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+        id: sha_short
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+      - name: Set outputs
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
       - name: Build Image
         run: |
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "danibanez09" --password-stdin
