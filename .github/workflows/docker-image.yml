@@ -2,14 +2,12 @@ name: Docker Image CI
 
 on:
   push:
-    branches: ['develop', 'feature/**']
+    branches: ['feature/**']
   pull_request:
-    branches: [ "develop" ]
+    branches: ['develop']
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -19,8 +17,7 @@ jobs:
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - name: Build Image
         run: |
-          docker login -u "danibanez09" -p ${{ secrets.DOCKER_PASSWORD }}
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "danibanez09" --password-stdin
           docker image build -t portfolio/frontend:$(date +"%Y-%m-%d %T")-${{ steps.vars.outputs.sha_short }} .
       - name: Push Image
         run: docker push portfolio/frontend:$(date +"%Y-%m-%d %T")-${{ steps.vars.outputs.sha_short }}
-
