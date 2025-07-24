@@ -2,12 +2,14 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 // components
-import FacebookIcon from '../components/icons/FacebookIcon';
-import GithubIcon from '../components/icons/GithubIcon';
 import MainButton from '../components/buttons/MainButton';
 
-import pic from '../assets/images/profile.jpg';
-import indexbg from '../assets/images/index.png';
+import FacebookIcon from '../components/icons/FacebookIcon';
+import GithubIcon from '../components/icons/GithubIcon';
+import LinkedinIcon from '../components/icons/LinkedinIcon';
+
+// import indexbg from '../assets/images/index.png';
+import bg from '../assets/images/bg.png';
 import { fetchUsers } from '../state/reducers/userReducer';
 
 const HomePage = () => {
@@ -22,18 +24,18 @@ const HomePage = () => {
   return (
     <div className="z-10">
       <div className="grid grid-cols-6 md:grid-cols-12 gap-1 md:h-[calc(100vh)] min-md:mr-12">
-        <div className="col-span-8 flex overflow-hidden max-md:h-[162px]">
-          <img className="w-[100%] object-cover" src={indexbg} alt="avatar" />
+        <div className="col-span-8 flex overflow-hidden max-md:h-[162px] gradientMask">
+          <img className="w-[100%] object-cover" src={bg} alt="avatar" />
         </div>
         <div className="col-span-6 md:col-span-4 px-4 md:-ml-50 relative max-md:overflow-hidden max-md:h-[calc(100vh-168px)] md:mt-[60px]">
           <div className="grid grid-cols-12">
-            <div className="col-span-12  md:mt-[20dvh]">
-              <p className="text-1xl md:text-2xl text-shadow-lg animate-fadeIn">
+            <div className="col-span-12  md:mt-[10dvh]">
+              <p className="text-2xl md:text-3xl text-shadow-lg animate-fadeIn">
                 Hey, I'm {users.value?.profileId?.nickname}
               </p>
             </div>
 
-            <div className="col-span-12 mt-2 md:mt-6 relative">
+            <div className="col-span-12 mt-4 md:mt-6 relative">
               <div className="absolute -top-20 left-100 -z-1">
                 <div className="rounded-full bg-neutral-700 w-10 h-10 fixed"></div>
               </div>
@@ -55,12 +57,12 @@ const HomePage = () => {
                 {users.value?.profileId?.occupation}
               </p>
             </div>
-            <div className="col-span-12 mt-2 md:mt-12 min-h-50">
+            <div className="col-span-12 mt-10 md:mt-12 min-h-50">
               <div>
                 <p
                   className="text-2xl md:text-3xl text-shadow-lg/30 animate-fadeIn"
                   style={{ animationDelay: '2.5s', opacity: 0 }}>
-                  Bringing ideas to life through modern technologies.
+                  {users.value?.profileId?.tagline}.
                 </p>
               </div>
 
@@ -106,16 +108,28 @@ const HomePage = () => {
                   </div>
                 </div>
                 <div className="col-span-6 flex justify-end gap-2">
-                  <FacebookIcon
-                    // onClick={() => window.open('https://www.facebook.com/dan2498', '_blank')}
-                    className="w-5 h-5 text-stone-900 rounded-full ring-1 bg-gray-100 hover:cursor-pointer animate-fadeIn"
-                    style={{ animationDelay: '3.5s', opacity: 0 }}
-                  />
-                  <GithubIcon
-                    // onClick={() => window.open('https://github.com/dibanez09', '_blank')}
-                    className="w-5 h-5 text-stone-900 rounded-full ring-1 bg-gray-100 hover:cursor-pointer animate-fadeIn"
-                    style={{ animationDelay: '3.6s', opacity: 0 }}
-                  />
+                  {users.value?.socialLinkId?.facebook && (
+                    <FacebookIcon
+                      onClick={() => window.open(users.value.socialLinkId.facebook, '_blank')}
+                      className="w-5 h-5 text-stone-900 rounded-full ring-1 bg-gray-100 hover:cursor-pointer animate-fadeIn"
+                      style={{ animationDelay: '3.5s', opacity: 0 }}
+                    />
+                  )}
+                  {users.value?.socialLinkId?.github && (
+                    <GithubIcon
+                      onClick={() => window.open(users.value.socialLinkId.github, '_blank')}
+                      className="w-5 h-5 text-stone-900 rounded-full ring-1 bg-gray-100 hover:cursor-pointer animate-fadeIn"
+                      style={{ animationDelay: '3.6s', opacity: 0 }}
+                    />
+                  )}
+
+                  {users.value?.socialLinkId?.linkedin && (
+                    <LinkedinIcon
+                      onClick={() => window.open(users.value.socialLinkId.linkedin, '_blank')}
+                      className="w-5 h-5 text-stone-900 rounded-full ring-1 bg-gray-100 hover:cursor-pointer animate-fadeIn"
+                      style={{ animationDelay: '3.6s', opacity: 0 }}
+                    />
+                  )}
                 </div>
               </div>
             </div>
