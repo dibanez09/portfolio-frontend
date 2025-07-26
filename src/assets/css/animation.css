@@ -1,0 +1,96 @@
+@theme {
+  --font-ISOCP: 'ISOCP', 'sans-serif';
+  --font-abel: 'abel', 'sans-serif';
+
+  --animate-slide-down: slideDown 1s ease-in-out;
+  @keyframes slideDown {
+    100% {
+      margin-bottom: none;
+    }
+    50% {
+      opacity: 1;
+    }
+    0% {
+      margin-bottom: 200px;
+      opacity: 0;
+    }
+  }
+
+  --animate-slide-up: slideUp 1s ease-in-out;
+  @keyframes slideUp {
+    100% {
+      margin-top: none;
+    }
+    50% {
+      opacity: 1;
+    }
+    0% {
+      margin-top: 200px;
+      opacity: 0;
+    }
+  }
+
+  --animate-spacing: spacing 1s ease-in-out;
+  @keyframes spacing {
+    100% {
+      letter-spacing: -2px;
+    }
+    0% {
+      letter-spacing: 20px;
+    }
+  }
+
+  --animate-fadeIn: fadeIn 1s ease-in-out forwards;
+  @keyframes fadeIn {
+    100% {
+      opacity: 1;
+    }
+    0% {
+      opacity: 0;
+    }
+  }
+
+  --animate-nickname: nickname 3s ease-in-out;
+  @keyframes nickname {
+    100% {
+      letter-spacing: -2px;
+      color: oklch(94.5% 0.129 101.54);
+    }
+    33.33% {
+      letter-spacing: -2px;
+      color: white;
+    }
+    0% {
+      letter-spacing: 20px;
+      color: white;
+    }
+  }
+
+  --animate-fadeInBurstFade: fadeInBurstFade 3s ease-in-out;
+  @keyframes fadeInBurstFade {
+    100% {
+      letter-spacing: 20px;
+      opacity: 0;
+    }
+    50% {
+      letter-spacing: -2px;
+      opacity: 1;
+    }
+    0% {
+      letter-spacing: -2px;
+      opacity: 0;
+    }
+  }
+
+  --animate-zoomOut: zoomOut 2s ease-in-out forwards;
+  @keyframes zoomOut {
+    100% {
+      scale: 10000%;
+      opacity: 0;
+    }
+    10% {
+      scale: 110%;
+      opacity: 1;
+    }
+  }
+}

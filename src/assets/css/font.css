@@ -1,1 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Londrina+Outline&display=swap&family=Abel&display=swap');
+
+@font-face {
+  font-family: 'ISOCP';
+  src: url('../fonts/ISOCP.ttf') format('tiff');
+  /* Add other properties like font-weight and font-style if needed */
+}
+
+@theme {
+  --font-ISOCP: 'ISOCP', 'sans-serif';
+  --font-abel: 'abel', 'sans-serif';
+}
