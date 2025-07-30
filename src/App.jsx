@@ -7,7 +7,6 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import PortfolioPage from './pages/PortfolioPage';
 import ContactPage from './pages/ContactPage';
-
 import NavBar from './components/NavBar';
 import PreloadOverlay from './components/PreloadOverlay';
 const App = () => {
@@ -15,7 +14,7 @@ const App = () => {
   return (
     <>
       {/* px-4 mx-auto max-w-7xl lg:px-8  */}
-      <div className="font-abel">
+      <div>
         <>
           {app.preloading ? <PreloadOverlay /> : ''}
           {app.preloading ? (

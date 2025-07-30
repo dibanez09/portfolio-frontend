@@ -9,9 +9,15 @@
 
 @layer base {
   html {
-    @apply bg-neutral-900; /* Replace with your desired background color */
-    font-family: 'abel', sans-serif;
-    color: #5c5c5c;
+    @apply bg-black; /* Replace with your desired background color */
+    font-family: 'Pontano Sans', sans-serif;
+    color: #757575;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
 

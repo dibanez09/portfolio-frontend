@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -15,9 +15,19 @@ const NavBar = ({ menu, fname }) => {
   const users = useSelector((state) => state.users);
   const [mobileMenuIsOpen, setmobileMenuIsOpen] = useState(false);
 
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+    setScrollPosition(window.scrollY);
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <nav
-      className={`fixed top-0 w-full z-1000 ${mobileMenuIsOpen ? 'max-sm:backdrop-blur-sm' : ''}`}>
+      className={`fixed top-0 w-full z-1000 ${scrollPosition || mobileMenuIsOpen ? 'backdrop-blur-sm' : ''}`}>
       <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-[70px] items-center justify-between">
           <div className="flex lg:flex-1">
