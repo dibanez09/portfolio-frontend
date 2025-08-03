@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -15,16 +15,27 @@ const NavBar = ({ menu, fname }) => {
   const users = useSelector((state) => state.users);
   const [mobileMenuIsOpen, setmobileMenuIsOpen] = useState(false);
 
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+    setScrollPosition(window.scrollY);
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
-    <nav className={`fixed top-0 w-full z-10000 ${mobileMenuIsOpen ? 'backdrop-blur-sm' : ''}`}>
+    <nav
+      className={`fixed top-0 w-full z-1000 ${scrollPosition || mobileMenuIsOpen ? 'backdrop-blur-sm' : ''}`}>
       <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div class="relative flex h-16 items-center justify-between">
+        <div class="relative flex h-[70px] items-center justify-between">
           <div className="flex lg:flex-1">
             <a onClick={() => navigate('/')} className="-m-1.5 p-1.5">
-              <span className="logo text-white animate-spacing">
+              <span className="logo text-xl text-accent animate-spacing">
                 {users.value?.profileId?.nickname}
               </span>
-              <span className="logo text-accent animate-spacing">.dev</span>
+              <span className="logo text-xl text-white animate-spacing">.dev</span>
             </a>
           </div>
           <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
@@ -34,7 +45,8 @@ const NavBar = ({ menu, fname }) => {
                   <div key={i}>
                     <button
                       onClick={() => navigate(item?.link)}
-                      className={`text-sm/6 font-semibold text-white-900 hover:text-white-1000 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 ${pathname == item?.link ? 'text-white' : ''}`}>
+                      className={`animate-fadeIn text-sm/6 font-semibold text-white-900 hover:text-white-1000 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 ${pathname == item?.link ? 'text-white' : ''}`}
+                      style={{ animationDelay: i, opacity: 0 }}>
                       {item?.title}
                     </button>
                   </div>
