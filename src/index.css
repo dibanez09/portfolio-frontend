@@ -13,11 +13,11 @@
     font-family: 'Pontano Sans', sans-serif;
     color: #757575;
 
-    ::-webkit-scrollbar {
+    /* ::-webkit-scrollbar {
       display: none;
     }
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none; */
   }
 }
 
