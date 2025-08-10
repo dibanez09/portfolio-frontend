@@ -8,6 +8,14 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
 
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger, useGSAP); // register the hook to avoid React version discrepancies
+gsap.config({
+  nullTargetWarn: false
+});
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>

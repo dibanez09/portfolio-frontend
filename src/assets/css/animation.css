@@ -1,7 +1,4 @@
 @theme {
-  --font-ISOCP: 'ISOCP', 'sans-serif';
-  --font-abel: 'abel', 'sans-serif';
-
   --animate-slide-down: slideDown 1s ease-in-out;
   @keyframes slideDown {
     100% {
@@ -54,7 +51,7 @@
   @keyframes nickname {
     100% {
       letter-spacing: -2px;
-      color: oklch(94.5% 0.129 101.54);
+      color: #72ffd0ff;
     }
     33.33% {
       letter-spacing: -2px;
@@ -108,5 +105,69 @@
   to {
     opacity: 1;
     scale: 1;
+  }
+}
+
+.animate-slideOutLeftOnScroll {
+  animation: slideOutLeftOnScroll 0.8s ease-out forwards;
+  animation-timeline: scroll();
+  animation-range: 0 300px;
+}
+
+@keyframes slideOutLeftOnScroll {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.animate-slideOutRightOnScroll {
+  animation: slideOutRightOnScroll 0.8s ease-out forwards;
+  animation-timeline: scroll();
+  animation-range: 0 300px;
+}
+
+@keyframes slideOutRightOnScroll {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.8s ease-out;
+}
+
+@keyframes slideInRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  from {
+    transform: translateX(100%); /* Adjust as needed for direction */
+    opacity: 0;
   }
 }

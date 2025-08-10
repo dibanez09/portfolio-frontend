@@ -11,13 +11,14 @@
   html {
     @apply bg-black; /* Replace with your desired background color */
     font-family: 'Pontano Sans', sans-serif;
-    color: #757575;
+    color: #e7e7e7;
+    scroll-behavior: smooth;
 
-    /* ::-webkit-scrollbar {
+    ::-webkit-scrollbar {
       display: none;
     }
     -ms-overflow-style: none;
-    scrollbar-width: none; */
+    scrollbar-width: none;
   }
 }
 
@@ -38,4 +39,21 @@
     rgba(0, 0, 0, 0.318),
     rgba(0, 0, 0, 0)
   );
+}
+
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+}
+
+.glass-panel {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 10px;
 }

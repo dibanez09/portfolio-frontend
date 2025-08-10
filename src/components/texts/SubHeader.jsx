@@ -1,5 +1,9 @@
 const SubHeader = (props) => {
-  return <p className="font-thin text-2xl">{props.children}</p>;
+  return (
+    <div className={`font-thin text-[1.2rem] ${props.className}`} {...props}>
+      {props.children}
+    </div>
+  );
 };
 
 export default SubHeader;

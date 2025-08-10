@@ -24,7 +24,7 @@ export function Cube(props) {
     // Animate position with a sine wave for a "floating" effect
     meshRef.current.position.y = Math.sin(clock.elapsedTime) * 0.1 + 1.59;
     meshRock1Ref.current.position.y = Math.sin(clock.elapsedTime) * 0.3 + 1.53;
-    meshRock2Ref.current.position.y = Math.sin(clock.elapsedTime) * 0.1 + 1.57;
+    meshRock2Ref.current.position.y = Math.sin(clock.elapsedTime) * 0.2 + 1.57;
     meshRock3Ref.current.position.y = Math.sin(clock.elapsedTime) * 0.5 + 1.51;
   });
 
@@ -65,7 +65,7 @@ export function Cube(props) {
       />
       {/* added */}
       <Sparkles
-        color="#72FFD0FF"
+        color="rgba(114, 255, 208, 1)"
         noise={10}
         speed={0.1}
         opacity={1}
@@ -74,7 +74,7 @@ export function Cube(props) {
         count={200}
       />
       <Sparkles
-        color="#72FFD0FF"
+        color="rgba(114, 255, 208, 1)"
         count={500}
         speed={0.1}
         opacity={0.5}
