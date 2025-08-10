@@ -35,7 +35,7 @@ const PreloadOverlay = ({ menu, fname }) => {
 
   return (
     <div
-      className={`fixed top-0 left-0 h-[100dvh] w-[100dvw] backdrop-blur-sm z-1000 flex justify-center items-center ${zoomOut ? 'animate-zoomOut' : ''}`}>
+      className={`fixed top-0 left-0 h-[100dvh] w-[100dvw] backdrop-blur-sm z-1001 flex justify-center items-center ${zoomOut ? 'animate-zoomOut' : ''}`}>
       {users.status == 'succeeded' ? (
         <div className="absolute text-6xl animate-position" style={{ animationDelay: '6s' }}>
           <div>
