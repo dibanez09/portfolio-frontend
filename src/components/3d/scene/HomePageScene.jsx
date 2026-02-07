@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, Suspense } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Environment, OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
@@ -6,7 +6,7 @@ import { Canvas } from '@react-three/fiber';
 import { Cube } from '../Cube';
 import gsap from 'gsap';
 
-const HomePageScene = (props) => {
+const Scene = (props) => {
   const scrollY = useRef(0);
   const radius = 10;
   const isScrolling = useRef(false);
@@ -87,4 +87,15 @@ const HomePageScene = (props) => {
   );
 };
 
+const HomePageScene = (props) => {
+  return (
+    <>
+      <Suspense fallback={null}>
+        <Canvas>
+          <Scene />
+        </Canvas>
+      </Suspense>
+    </>
+  );
+};
 export default HomePageScene;

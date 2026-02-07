@@ -13,15 +13,40 @@ const appSlice = createSlice({
       xl: 1280,
       xxl: 1536
     },
+    scroll: {
+      y: 0,
+      x: 0
+    },
+    navigations: [
+      { title: 'Home', link: '/' },
+      { title: 'About', link: '/about' },
+      { title: 'Portfolio', link: '/portfolio' },
+      { title: 'Contact', link: '/contact' }
+    ],
     error: null
   },
   reducers: {
     setPreloading: (state, action) => {
       state.preloading = action.payload;
+    },
+    updateProperty: (state, action) => {
+      try {
+        const { path, value } = action.payload;
+        const keys = path.split('.');
+        const res = keys.reduceRight((acc, key, i) => {
+          if (i === keys.length - 1) {
+            return { [key]: value };
+          } else {
+            return { [key]: acc };
+          }
+        }, value);
+      } catch (error) {
+        console.error('error updating property', error);
+      }
     }
   }
 });
 
-export const { setPreloading } = appSlice.actions;
+export const { setPreloading, updateProperty } = appSlice.actions;
 
 export default appSlice.reducer;
