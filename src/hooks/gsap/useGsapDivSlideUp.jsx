@@ -10,7 +10,7 @@ const useGsapDivSlideUp = (selector = '[animate="div-slide-up"]', options = {}) 
         opacity: 0,
         yPercent: 100,
         duration: 0.6,
-        ease: 'back.out(2)',
+        ease: 'slow(0.7,0.7,false)',
         stagger: { amount: 0.3 },
         ...options
       });

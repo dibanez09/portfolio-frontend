@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUsers } from './state/reducers/userReducer';
 
@@ -12,14 +12,29 @@ import NavBar from './components/NavBar';
 import PreloadOverlay from './components/PreloadOverlay';
 
 import { useGLTF, useTexture } from '@react-three/drei';
+import AppFooter from './components/AppFooter';
 const App = () => {
+  // state
   const app = useSelector((state) => state.app);
+
+  const location = useLocation();
+  const { hash, pathname, search } = location;
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }, [pathname]);
+
+  // function
   function preloadAssets() {
     useGLTF.preload('/landing-page.glb');
   }
@@ -35,20 +50,17 @@ const App = () => {
             ''
           ) : (
             <>
-              <NavBar
-                menu={[
-                  { title: 'Home', link: '/' },
-                  { title: 'About', link: '/about' },
-                  { title: 'Portfolio', link: '/portfolio' },
-                  { title: 'Contact', link: '/contact' }
-                ]}
-              />
+              <NavBar menu={app.navigations} />
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/portfolio" element={<PortfolioPage />} />
                 <Route path="/contact" element={<ContactPage />} />
               </Routes>
+
+              <div className="flex">
+                <AppFooter />
+              </div>
             </>
           )}
         </>

@@ -8,6 +8,7 @@ import Ripples from './icons/animated/Ripples';
 import FadeStagerCircle from './icons/animated/FadeStagerCircle';
 
 import { setPreloading } from '../state/reducers/appReducer';
+import { updateProperty } from '../state/reducers/appReducer';
 
 const PreloadOverlay = ({ menu, fname }) => {
   const [zoomOut, setZoomout] = useState(false);
@@ -19,6 +20,7 @@ const PreloadOverlay = ({ menu, fname }) => {
 
   useEffect(() => {
     dispatch(fetchUsers());
+    dispatch(updateProperty({ value: 0, path: 'scroll.y' }));
   }, [dispatch]);
 
   useEffect(() => {

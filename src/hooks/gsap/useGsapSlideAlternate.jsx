@@ -10,7 +10,7 @@ const useGsapSlideAlternate = (
     const elements = gsap.utils.toArray(selector);
     elements.forEach((el, i) => {
       gsap.to(el, {
-        x: i % 2 == 0 ? -500 : 500,
+        x: i % 2 == 0 ? -100 : 100,
         opacity: 0,
         scrollTrigger: {
           trigger: selector,
