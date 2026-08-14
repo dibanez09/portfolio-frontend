@@ -15,7 +15,8 @@ import {
   useGsapWordSlideUp,
   useGsapDivSlideUp,
   useGsapSlide,
-  useGsapSlideAlternate
+  useGsapSlideAlternate,
+  useGsapHorizontalScroll
 } from '../hooks/gsap/gsapAnimation';
 
 //icons
@@ -36,6 +37,7 @@ const HomePage = () => {
   useGsapWordSlideUp();
   useGsapDivSlideUp();
   useGsapSlideAlternate();
+  useGsapHorizontalScroll();
 
   // functions
   const scrollToAbout = () => {
@@ -62,18 +64,17 @@ const HomePage = () => {
 
             ) : null} */}
             <div className="max-sm:col-span-12 col-span-6 max-sm:row-span-40 max-sm:-mt-20 -ml-50 max-sm:ml-2 z-10">
-              <div></div>
               <div className="uppercase text-[6vw] font-Audiowide outline-text mt-[6vw]">
                 I'm {users.value?.profileId?.nickname}
               </div>
-              <div className="animate-slideInLeft">
+              <div>
                 <div
                   animate="slide-alternate"
                   className="uppercase text-[8vw] font-Audiowide text-white font-bold -mt-[5.6vw]">
                   {users.value?.profileId?.occupationSubCategory}
                 </div>
               </div>
-              <div className="animate-slideInRight">
+              <div>
                 <div
                   className="uppercase text-[6vw] font-Audiowide outline-text -mt-[5.6vw]"
                   animate="slide-alternate">
@@ -100,53 +101,77 @@ const HomePage = () => {
               <div className="max-md:col-span-7 col-span-7 flex items-center">
                 <div className="z-1" animate="word-slide-up">
                   <MainHeader>About me</MainHeader>
-                  <SubHeader className="mt-10">
+                  <SubHeader className="mt-4">
                     a passionate full stack developer with bold ideas, dedicated to treating every
                     project as my own — turning concepts into reality through modern technology.
                   </SubHeader>
                 </div>
               </div>
-            </div>
-            <div className="grid grid-cols-12 gap-1">
-              <div className="col-span-7 flex items-center">
+              <div className="max-md:col-span-7 col-span-7">
                 <div className="z-1" animate="word-slide-up">
                   <MainHeader>Tech Stack</MainHeader>
-                  {/* <SubHeader className="mt-10">Frontend</SubHeader> */}
+                </div>
+                <div class="flex" animate="div-slide-up">
+                  <div class="flex justify-center items-center m-1 px-3 py-1 bg-blue-500 text-white text-sm font-medium rounded-full">
+                    Sample Chip 1
+                  </div>
+                  <div class="flex justify-center items-center m-1 px-3 py-1 bg-blue-500 text-white text-sm font-medium rounded-full">
+                    Sample Chip 2
+                  </div>
+                  <div class="flex justify-center items-center m-1 px-3 py-1 bg-blue-500 text-white text-sm font-medium rounded-full">
+                    Sample Chip 3
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-12 gap-2 mt-10" animate="div-slide-up">
-              <div className="max-md:col-span-6 col-span-2 h-[20vh] flex items-center justify-center flex-col">
-                <ReactIcon />
-                <div className="">Reactjs</div>
+            {/* <div className="grid grid-cols-12 gap-1">
+              <div className="col-span-7 flex items-center">
+                <div className="z-1" animate="word-slide-up">
+                  <MainHeader>Tech Stack</MainHeader>
+                  <SubHeader className="mt-10">Frontend</SubHeader>
+                </div>
               </div>
-              <div className="max-md:col-span-6 col-span-2 h-[20vh] flex items-center justify-center flex-col">
-                <VueIcon />
-                <div>Vuejs</div>
+            </div> */}
+            <div id="horizontalContainer" className="z-10" animate="horizontal-scroll">
+              <div className="content">
+                <div className="flex flex-col items-center justify-center" animate="word-slide-up">
+                  <div className="mr-20">
+                    <div className="uppercase text-[10vw] font-Audiowide text-white font-bold">
+                      recent
+                    </div>
+                  </div>
+                  <div className="-mt-[7vw] ml-20">
+                    <div className="uppercase text-[8vw] font-Audiowide outline-text">projects</div>
+                  </div>
+                </div>
               </div>
-              <div className="max-md:col-span-6 col-span-2 h-[20vh] flex items-center justify-center flex-col">
-                <ReactIcon />
-                <div className="">Reactjs</div>
+              <div className="content">
+                <div className="grid grid-cols-12 gap-1">
+                  <div className="col-span-6 flex items-center justify-center">
+                    <div className="z-1 border-2">
+                      <MainHeader>Project 1</MainHeader>
+                      {/* <SubHeader className="mt-10">Frontend</SubHeader> */}
+                    </div>
+                  </div>
+                  <div className="col-span-6 flex items-center justify-center">
+                    <div className="z-1 border-2">
+                      <MainHeader>Info</MainHeader>
+                      {/* <SubHeader className="mt-10">Frontend</SubHeader> */}
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="max-md:col-span-6 col-span-2 h-[20vh] flex items-center justify-center flex-col">
-                <VueIcon />
-                <div>Vuejs</div>
+              <div className="content">
+                <div className="">content 2</div>
               </div>
-              <div className="max-md:col-span-6 col-span-2 h-[20vh] flex items-center justify-center flex-col">
-                <ReactIcon />
-                <div className="">Reactjs</div>
+              <div className="content">
+                <div className="">content 3</div>
               </div>
-              <div className="max-md:col-span-6 col-span-2 h-[20vh] flex items-center justify-center flex-col">
-                <VueIcon />
-                <div>Vuejs</div>
+              <div className="content">
+                <div className="">content 4</div>
               </div>
-              <div className="max-md:col-span-6 col-span-2 h-[20vh] flex items-center justify-center flex-col">
-                <ReactIcon />
-                <div className="">Reactjs</div>
-              </div>
-              <div className="max-md:col-span-6 col-span-2 h-[20vh] flex items-center justify-center flex-col">
-                <VueIcon />
-                <div>Vuejs</div>
+              <div className="content">
+                <div className="">content 5</div>
               </div>
             </div>
           </div>

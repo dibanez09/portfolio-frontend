@@ -11,4 +11,11 @@ import useGsapWordSlideUp from './useGsapWordSlideUp';
 import useGsapDivSlideUp from './useGsapDivSlideUp';
 import useGsapSlide from './useGsapSlide';
 import useGsapSlideAlternate from './useGsapSlideAlternate';
-export { useGsapWordSlideUp, useGsapDivSlideUp, useGsapSlide, useGsapSlideAlternate };
+import useGsapHorizontalScroll from './useGsapHorizontalScroll';
+export {
+  useGsapWordSlideUp,
+  useGsapDivSlideUp,
+  useGsapSlide,
+  useGsapSlideAlternate,
+  useGsapHorizontalScroll
+};

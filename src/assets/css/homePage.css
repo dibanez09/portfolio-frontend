@@ -1,0 +1,14 @@
+#horizontalContainer .content {
+  height: 70vh;
+  width: 100%;
+  /* border: 2px solid red; */
+  position: relative;
+  z-index: 1;
+  display: grid;
+  flex-shrink: 0;
+}
+
+#horizontalContainer {
+  display: flex;
+  overflow-x: hidden;
+}

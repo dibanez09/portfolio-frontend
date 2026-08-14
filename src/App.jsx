@@ -36,7 +36,7 @@ const App = () => {
 
   // function
   function preloadAssets() {
-    useGLTF.preload('/landing-page.glb');
+    useGLTF.preload('/landing-page-opt.glb');
   }
 
   preloadAssets();

@@ -1,6 +1,7 @@
 @import './assets/css/font.css';
 @import './assets/css/color.css';
 @import './assets/css/animation.css';
+@import './assets/css/homepage.css';
 
 @import 'tailwindcss';
 @tailwind base;
@@ -55,4 +56,10 @@
   -webkit-backdrop-filter: blur(7px);
   border: 1px solid rgba(255, 255, 255, 0.09);
   padding: 10px;
+}
+
+.liquid-glass {
+  font-family: 'Montserrat', sans-serif;
+  background: color-mix(in oklab, var(--bg) 80%, transparent);
+  border: color-mix(in oklab, var(--glass-bg) 70%, white);
 }
